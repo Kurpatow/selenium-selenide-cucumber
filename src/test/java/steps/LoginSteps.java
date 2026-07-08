@@ -15,7 +15,6 @@ public class LoginSteps {
 
     @Given("пользователь открыл страницу авторизации")
     public void openLoginPage() {
-
         open("https://www.saucedemo.com/");
         loginPage = new LoginPage();
     }
@@ -35,18 +34,13 @@ public class LoginSteps {
         mainPage = loginPage.clickLoginButton();
     }
 
-    @When("пользователь входит с логином {string} и паролем {string}")
-    public void login(String username, String password) {
-        mainPage = loginPage.login(username, password);
-    }
-
     @Then("открывается главная страница")
     public void mainPageOpened() {
-
+        mainPage.shouldBeOpened();
     }
 
     @Then("отображается сообщение об ошибке")
-    public void loginErrorMessage() {
-
+    public void loginErrorShown() {
+        loginPage.shouldShowLoginError();
     }
 }

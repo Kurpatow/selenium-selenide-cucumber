@@ -1,5 +1,7 @@
 package pages;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage {
@@ -20,10 +22,18 @@ public class LoginPage extends BasePage {
     }
 
     public MainPage login(String username, String password) {
+         return enterUsername(username)
+                 .enterPassword(password)
+                 .clickLoginButton();
+    }
 
-        enterUsername(username);
-        enterPassword(password);
+    public void shouldShowLoginError() {
+        $("h3[data-test='error']")
+                .shouldBe(visible);
+    }
 
-        return clickLoginButton();
+    public void shouldShowLoginError(String message) {
+        $("h3[data-test='error'")
+                .shouldHave(text(message));
     }
 }

@@ -36,4 +36,9 @@ public class CartSteps {
     public void cartContainsProduct(String productName) {
         cartPage.shouldContainProduct(productName);
     }
+
+    @Then("открывается страница корзины")
+    public void cartPageOpened() {
+        cartPage.shouldBeOpened();
+    }
 }

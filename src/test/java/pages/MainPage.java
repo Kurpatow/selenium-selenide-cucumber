@@ -33,7 +33,7 @@ public class MainPage extends BasePage {
     }
 
     public CartPage openCart() {
-        $(".shooping_cart_link").click();
+        $(".shopping_cart_link").click();
         return new CartPage();
     }
 

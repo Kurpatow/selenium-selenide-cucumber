@@ -14,9 +14,7 @@ public class Hooks {
     public void setUp() {
         DriverConfig.configure();
         SelenideLogger.addListener(
-                "AllureSelenide",
-                new AllureSelenide()
-        );
+                "AllureSelenide", new AllureSelenide());
     }
 
     @After

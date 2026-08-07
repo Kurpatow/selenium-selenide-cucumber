@@ -11,7 +11,13 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class Hooks {
 
     @Before
-    public void setUp() { DriverConfig.configure(); }
+    public void setUp() {
+        DriverConfig.configure();
+        SelenideLogger.addListener(
+                "AllureSelenide",
+                new AllureSelenide()
+        );
+    }
 
     @After
     public void tearDown() {
